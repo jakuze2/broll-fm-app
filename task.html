@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Broll FM — job sheet</title>
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --ground:#F5F7F8; --surface:#FFFFFF; --surface-2:#EDF1F3;
+  --ink:#10191D; --ink-2:#33474F; --muted:#5F757E;
+  --rule:#D9E2E5; --rule-strong:#B9C8CD;
+  --accent:#1B5163; --accent-soft:#E2ECEF; --accent-ink:#123845;
+  --ok:#2F7A55; --warn:#B07E12; --crit:#B04429;
+  --ok-bg:#E6F1EB; --warn-bg:#F7EEDA; --crit-bg:#F7E7E2;
+  --f-b:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-m:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --shadow:0 1px 2px rgba(16,25,29,.05);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0C1416; --surface:#121D21; --surface-2:#182629;
+  --ink:#E7EEF0; --ink-2:#BACAD0; --muted:#8CA3AA;
+  --rule:#233438; --rule-strong:#33484E;
+  --accent:#6FB6CC; --accent-soft:#152C34; --accent-ink:#A8D4E2;
+  --ok:#5FBE8E; --warn:#D9AC4C; --crit:#E0806A;
+  --ok-bg:#12261D; --warn-bg:#2A2313; --crit-bg:#2A1912;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-b);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;margin:0 auto;padding:0 1rem 4rem}
+header{background:var(--accent);color:#F2F8FA;padding:1rem;margin-bottom:1.1rem}
+header .w{max-width:640px;margin:0 auto}
+header h1{font-size:1.05rem;margin:0;font-weight:700;letter-spacing:-.01em}
+header p{margin:.15rem 0 0;font-family:var(--f-m);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.82}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:1rem 1.05rem;box-shadow:var(--shadow);margin-bottom:1rem}
+.card h2{font-size:1.02rem;margin:0 0 .3rem;font-weight:700;letter-spacing:-.01em}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:.25rem .8rem;font-size:.86rem;margin:.7rem 0 0}
+.meta dt{font-family:var(--f-m);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:.2rem}
+.meta dd{margin:0;color:var(--ink-2)}
+.chip{display:inline-block;font-family:var(--f-m);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;padding:.14rem .4rem;border-radius:2px;font-weight:600}
+.chip.ok{background:var(--ok-bg);color:var(--ok)}.chip.warn{background:var(--warn-bg);color:var(--warn)}
+.chip.crit{background:var(--crit-bg);color:var(--crit)}.chip.mut{background:var(--surface-2);color:var(--muted)}
+.fld{display:flex;flex-direction:column;gap:.24rem;margin-bottom:.85rem}
+.fld label{font-family:var(--f-m);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.fld input,.fld textarea,.fld select{font:inherit;font-size:1rem;padding:.6rem .65rem;border:1px solid var(--rule-strong);border-radius:4px;background:var(--surface);color:var(--ink);width:100%}
+.fld input:focus,.fld textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:0 .7rem}
+.chk{display:flex;gap:.7rem;align-items:flex-start;padding:.7rem 0;border-bottom:1px solid var(--rule)}
+.chk:last-child{border-bottom:0}
+.chk .seq{font-family:var(--f-m);font-size:.72rem;color:var(--muted);padding-top:.35rem;min-width:1.5rem}
+.chk .body{flex:1;min-width:0}
+.chk .t{font-size:.94rem;margin-bottom:.35rem}
+.chk .t .req{color:var(--crit);font-family:var(--f-m);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;margin-left:.3rem}
+.pf{display:inline-flex;border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
+.pf button{font-family:var(--f-m);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem .8rem;border:0;background:transparent;color:var(--muted);cursor:pointer;border-right:1px solid var(--rule)}
+.pf button:last-child{border-right:0}
+.pf button[aria-pressed="true"][data-v="pass"]{background:var(--ok);color:#fff}
+.pf button[aria-pressed="true"][data-v="fail"]{background:var(--crit);color:#fff}
+.pf button[aria-pressed="true"][data-v="na"]{background:var(--surface-2);color:var(--ink)}
+button.big{width:100%;font-family:var(--f-m);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:.95rem;border:0;border-radius:4px;background:var(--accent);color:#F2F8FA;cursor:pointer;font-weight:600}
+button.big[disabled]{opacity:.45;cursor:not-allowed}
+button.ghost{background:transparent;color:var(--accent);border:1px solid var(--rule-strong)}
+.thumbs{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0 0}
+.thumb{position:relative;width:74px;height:74px;border-radius:4px;overflow:hidden;border:1px solid var(--rule-strong)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb button{position:absolute;top:2px;right:2px;border:0;border-radius:2px;background:rgba(0,0,0,.62);color:#fff;font-size:.68rem;padding:.15rem .32rem;cursor:pointer}
+.note{font-size:.78rem;color:var(--muted);margin:.5rem 0 0}
+.big-state{text-align:center;padding:2.4rem 1rem}
+.big-state .ic{font-size:2.4rem;line-height:1}
+.big-state h2{margin:.6rem 0 .3rem}
+.big-state p{color:var(--muted);font-size:.92rem;margin:.3rem 0}
+.bar{position:sticky;bottom:0;background:var(--ground);padding:.7rem 0 .8rem;border-top:1px solid var(--rule);margin-top:1rem;box-shadow:0 -8px 16px -8px rgba(16,25,29,.18)}
+.err{background:var(--crit-bg);color:var(--crit);border-radius:4px;padding:.6rem .75rem;font-size:.86rem;margin-bottom:.8rem}
+</style>
+</head>
+<body>
+<header><div class="w"><h1>Broll Facilities Management</h1><p id="hsub">World Bank · Kampala</p></div></header>
+<div class="wrap" id="app"><div class="card"><p class="note">Loading…</p></div></div>
+
+<script>
+/* =====================================================================
+   ONE JOB, ONE LINK, ONE SUBMISSION.
+   The page an outside contractor opens. No login, no navigation, no way
+   to reach anything else — the token names one job and that is the
+   entire universe this page can see.
+   Backed by fn_open_task_link / fn_submit_task_link (migrations/002).
+   With no API configured it runs the same flow against a local sample,
+   so the behaviour can be shown before the server exists.
+   ===================================================================== */
+/* Where the API lives.
+   Same origin by default — Caddy serves this page and proxies /rest to
+   PostgREST, so a contractor's link needs no configuration at all.
+   Overridable from the console for testing against another host, and
+   only file:// falls through to the built-in sample below. Getting this
+   wrong the other way round is worse than it looks: a page that quietly
+   shows the SAMPLE job on a real server would have a contractor filling
+   in a fire-extinguisher service that does not exist. */
+const API = (localStorage.getItem('broll.api')
+             || (location.protocol === 'file:' ? '' : '/rest')).replace(/\/$/,'');
+const SECRET = (location.pathname.match(/\/task\/([A-Za-z0-9_-]{20,})/) || [])[1]
+            || new URLSearchParams(location.search).get('t')
+            || location.hash.replace(/^#/,'')
+            || null;
+
+const $  = (s,r=document)=>r.querySelector(s);
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+const esc= s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const app=$('#app');
+
+let JOB=null, PHOTOS=[], ANSWERS={};
+
+/* ---- the sample, used when no server is configured ---- */
+const SAMPLE={ok:true,purpose:'service_report',
+  subject_label:'Fire extinguisher annual service — 41 units',
+  recipient:'Alice Namara',
+  expires_at:new Date(Date.now()+52*36e5).toISOString(),
+  brief:{
+    company:'Rapid Fire Services',
+    location:'World Bank Kampala — all floors and plant room',
+    reference:'PM-FIRE-2026-08',
+    instructions:'Annual service of all portable extinguishers. Statutory certificate required on completion. Report any unit that fails so a replacement can be raised as a work order.',
+    certificate_required:true,
+    items:[
+      {seq:1, description:'All units present and in their designated positions', answer_type:'pass_fail', is_critical:true},
+      {seq:2, description:'Pressure gauges in the green band',                   answer_type:'pass_fail', is_critical:true},
+      {seq:3, description:'Seals and tamper indicators intact',                  answer_type:'pass_fail', is_critical:false},
+      {seq:4, description:'Hoses and nozzles clear, no cracking',                answer_type:'pass_fail', is_critical:false},
+      {seq:5, description:'Units serviced and re-tagged',                        answer_type:'numeric',   uom:'units'},
+      {seq:6, description:'Units condemned or withdrawn',                        answer_type:'numeric',   uom:'units'},
+      {seq:7, description:'Signage and access unobstructed',                     answer_type:'pass_fail', is_critical:false},
+      {seq:8, description:'Photograph of the certificate',                       answer_type:'photo',     is_critical:true},
+      {seq:9, description:'Anything the estates team should know',               answer_type:'text'}
+    ]
+  }};
+
+async function rpc(fn, args){
+  if(!API) throw new Error('no-api');
+  const r=await fetch(`${API}/rpc/${fn}`,{method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(args)});
+  if(!r.ok) throw new Error('http-'+r.status);
+  return r.json();
+}
+
+async function boot(){
+  if(!SECRET){ return dead('This link is incomplete',
+    'The address is missing its code. Open the link exactly as it was sent to you — copying part of it will not work.'); }
+  let res;
+  try{
+    res = await rpc('fn_open_task_link',{p_secret:SECRET,p_user_agent:navigator.userAgent.slice(0,180)});
+  }catch(e){
+    if(e.message!=='no-api') return dead('We cannot reach the system',
+      'Check your connection and open the link again. The link itself is fine — nothing has been used up.');
+    res = SAMPLE;      // demo mode
+  }
+  if(!res || !res.ok) return refused(res && res.reason, res);
+  JOB=res; renderJob();
+}
+
+function refused(reason,res){
+  if(reason==='already_submitted') return dead('Already submitted',
+    'This job sheet has been filed and the link has closed. A supervisor is reviewing it — there is nothing further for you to do. '+
+    (res&&res.submitted_at? 'Filed '+new Date(res.submitted_at).toLocaleString('en-GB')+'.':''), 'ok');
+  if(reason==='revoked') return dead('This link was cancelled',
+    'Somebody at Broll withdrew it. Contact whoever sent it to you and ask for a new one.');
+  return dead('This link is no longer valid',
+    'It has either expired or been used. Ask whoever sent it for a fresh link — issuing one takes a moment and there is no way to revive this one.');
+}
+function dead(title,msg,kind){
+  app.innerHTML=`<div class="card big-state">
+    <div class="ic">${kind==='ok'?'✓':'—'}</div>
+    <h2>${esc(title)}</h2><p>${esc(msg)}</p>
+  </div>`;
+}
+
+function renderJob(){
+  const b=JOB.brief||{}, items=b.items||[];
+  const hrs=Math.max(0,Math.round((new Date(JOB.expires_at)-Date.now())/36e5));
+  $('#hsub').textContent = b.company ? b.company : 'World Bank · Kampala';
+  app.innerHTML=`
+  <div class="card">
+    <span class="chip mut">${esc((JOB.purpose||'').replace('_',' '))}</span>
+    <h2 style="margin-top:.4rem">${esc(JOB.subject_label)}</h2>
+    <dl class="meta">
+      ${b.location?`<dt>Where</dt><dd>${esc(b.location)}</dd>`:''}
+      ${b.reference?`<dt>Reference</dt><dd>${esc(b.reference)}</dd>`:''}
+      ${JOB.recipient?`<dt>For</dt><dd>${esc(JOB.recipient)}</dd>`:''}
+      <dt>Link closes</dt><dd>${hrs} hours from now — ${new Date(JOB.expires_at).toLocaleString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}</dd>
+    </dl>
+    ${b.instructions?`<p style="font-size:.9rem;color:var(--ink-2);margin:.9rem 0 0">${esc(b.instructions)}</p>`:''}
+  </div>
+
+  ${items.length?`<div class="card">
+    <h2>Checklist</h2>
+    <p class="note" style="margin-bottom:.4rem">A critical line that comes back <strong>fail</strong> blocks sign-off. That is deliberate — it forces a work order instead of a quiet pass.</p>
+    ${items.map(it=>chkHTML(it)).join('')}
+  </div>`:''}
+
+  <div class="card">
+    <h2>Your report</h2>
+    <div class="fld"><label for="tech">Engineer's name</label>
+      <input id="tech" type="text" value="${esc(JOB.recipient||'')}" autocomplete="name"></div>
+    <div class="g2">
+      <div class="fld"><label for="hours">Hours on site</label><input id="hours" type="number" step="0.25" inputmode="decimal"></div>
+      <div class="fld"><label for="cost">Charge, UGX</label><input id="cost" type="number" step="1000" inputmode="numeric"></div>
+    </div>
+    ${b.certificate_required?`<div class="fld"><label for="cert">Certificate number <span style="color:var(--crit)">required</span></label><input id="cert" type="text"></div>`:''}
+    <div class="fld"><label for="findings">What you found</label><textarea id="findings" rows="3"></textarea></div>
+    <div class="fld"><label for="action">What you did about it</label><textarea id="action" rows="3"></textarea></div>
+    <div class="fld"><label>Photographs</label>
+      <input type="file" id="pic" accept="image/*" capture="environment" multiple hidden>
+      <button class="big ghost" id="addpic" type="button">Add a photograph</button>
+      <div class="thumbs" id="thumbs"></div>
+      <p class="note" id="shrink">Resized here on your phone before sending — about 300&nbsp;KB each, so it works on a slow connection.</p>
+    </div>
+  </div>
+
+  <p class="note" style="text-align:center;margin:.4rem 0 0">You can submit once. After that the link closes and a supervisor reviews what you sent — nothing you file goes straight into the records.</p>
+
+  <div class="bar">
+    <div id="err"></div>
+    <button class="big" id="send">Submit this job sheet</button>
+  </div>`;
+
+  $$('.pf button').forEach(bt=>bt.onclick=()=>{
+    const seq=bt.closest('.chk').dataset.seq;
+    ANSWERS[seq]={...(ANSWERS[seq]||{}),result:bt.dataset.v};
+    $$(`.chk[data-seq="${seq}"] .pf button`).forEach(x=>x.setAttribute('aria-pressed', x===bt));
+  });
+  $$('[data-num]').forEach(i=>i.oninput=()=>{ ANSWERS[i.dataset.num]={value:i.value}; });
+  $$('[data-txt]').forEach(i=>i.oninput=()=>{ ANSWERS[i.dataset.txt]={text_value:i.value}; });
+  $('#addpic').onclick=()=>$('#pic').click();
+  $('#pic').onchange=e=>{[...e.target.files].forEach(shrink); e.target.value='';};
+  $('#send').onclick=submit;
+}
+
+function chkHTML(it){
+  const crit=it.is_critical?'<span class="req">critical</span>':'';
+  let control='';
+  if(it.answer_type==='pass_fail') control=`<div class="pf">
+      <button type="button" data-v="pass" aria-pressed="false">Pass</button>
+      <button type="button" data-v="fail" aria-pressed="false">Fail</button>
+      <button type="button" data-v="na"   aria-pressed="false">N/A</button></div>`;
+  else if(it.answer_type==='numeric') control=`<input type="number" step="any" inputmode="decimal" data-num="${it.seq}"
+      placeholder="${esc(it.uom||'number')}" style="font:inherit;padding:.5rem .6rem;border:1px solid var(--rule-strong);border-radius:4px;background:var(--surface);color:var(--ink);width:9rem">`;
+  else if(it.answer_type==='text') control=`<textarea rows="2" data-txt="${it.seq}"
+      style="font:inherit;padding:.5rem .6rem;border:1px solid var(--rule-strong);border-radius:4px;background:var(--surface);color:var(--ink);width:100%"></textarea>`;
+  else if(it.answer_type==='photo') control=`<p class="note" style="margin:0">Attach it below, with the rest of the photographs.</p>`;
+  return `<div class="chk" data-seq="${it.seq}">
+    <div class="seq">${it.seq}</div>
+    <div class="body"><div class="t">${esc(it.description)}${crit}</div>${control}</div></div>`;
+}
+
+function shrink(file){
+  if(PHOTOS.length>=6) return;
+  const rd=new FileReader(), img=new Image();
+  rd.onload=()=>{ img.onload=()=>{
+    const c=document.createElement('canvas');
+    const k=Math.min(1,1600/Math.max(img.width,img.height));
+    c.width=Math.round(img.width*k); c.height=Math.round(img.height*k);
+    c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+    const url=c.toDataURL('image/jpeg',0.7);
+    PHOTOS.push({url,kb:Math.round(url.length*.75/1024)});
+    paint();
+  }; img.src=rd.result; };
+  rd.readAsDataURL(file);
+}
+function paint(){
+  $('#thumbs').innerHTML=PHOTOS.map((p,i)=>`<div class="thumb"><img src="${p.url}" alt=""><button type="button" data-rm="${i}">×</button></div>`).join('');
+  $$('[data-rm]').forEach(b=>b.onclick=()=>{PHOTOS.splice(+b.dataset.rm,1);paint();});
+  $('#shrink').textContent = PHOTOS.length
+    ? PHOTOS.length+' photograph'+(PHOTOS.length>1?'s':'')+', '+PHOTOS.reduce((n,p)=>n+p.kb,0)+' KB in total after resizing.'
+    : 'Resized here on your phone before sending — about 300 KB each, so it works on a slow connection.';
+}
+
+function fail(msg){ $('#err').innerHTML=`<div class="err">${esc(msg)}</div>`; window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}); }
+
+async function submit(){
+  const b=JOB.brief||{}, items=b.items||[];
+  $('#err').innerHTML='';
+
+  // A critical line that came back fail blocks sign-off. Enforced here AND
+  // in the app when the supervisor accepts — never in the copy alone.
+  const critFail=items.filter(it=>it.is_critical && ANSWERS[it.seq]?.result==='fail');
+  const unanswered=items.filter(it=>it.answer_type==='pass_fail' && it.is_critical && !ANSWERS[it.seq]?.result);
+  if(unanswered.length) return fail(`Answer the critical lines first: ${unanswered.map(i=>i.seq).join(', ')}.`);
+  if(critFail.length && !$('#findings').value.trim())
+    return fail('A critical check failed. Say what you found — that is what the estates team will raise the work order from.');
+  if(b.certificate_required && !$('#cert')?.value.trim())
+    return fail('This service needs its certificate number. Without it the statutory record is incomplete.');
+  if(!$('#tech').value.trim()) return fail('Put your name on it. A report nobody signed is not a report.');
+
+  const payload={
+    technician:$('#tech').value.trim(),
+    labour_hours:parseFloat($('#hours').value)||null,
+    labour_cost_ugx:parseInt($('#cost').value,10)||null,
+    service_cost_ugx:parseInt($('#cost').value,10)||null,
+    certificate_no:$('#cert')?.value.trim()||null,
+    findings:$('#findings').value.trim()||null,
+    corrective_action:$('#action').value.trim()||null,
+    completed_ts:new Date().toISOString(),
+    outcome: critFail.length ? 'partial' : 'completed',
+    items: items.map(it=>({checklist_item_id:it.id||null, seq:it.seq, description:it.description,
+                           ...(ANSWERS[it.seq]||{})})),
+    photos: PHOTOS.map(p=>p.url)
+  };
+
+  const btn=$('#send'); btn.disabled=true; btn.textContent='Sending…';
+  try{
+    let res;
+    try{ res=await rpc('fn_submit_task_link',{p_secret:SECRET,p_payload:payload}); }
+    catch(e){ if(e.message!=='no-api') throw e;
+      res={ok:true,message:'Received. A supervisor will review it — you do not need to do anything else.'}; }
+    if(!res.ok) return refused(res.reason,res);
+    app.innerHTML=`<div class="card big-state">
+      <div class="ic" style="color:var(--ok)">✓</div>
+      <h2>Sent${critFail.length?' — with a failure recorded':''}</h2>
+      <p>${esc(res.message||'Received.')}</p>
+      ${critFail.length?`<p style="color:var(--crit)">${critFail.length} critical check${critFail.length>1?'s':''} came back fail. Estates will raise a work order from what you wrote.</p>`:''}
+      <p style="margin-top:1.2rem">This link has now closed. You can shut the page.</p>
+    </div>`;
+    window.scrollTo({top:0});
+  }catch(e){
+    btn.disabled=false; btn.textContent='Submit this job sheet';
+    fail('That did not send. Check your connection and press Submit again — nothing has been used up, and the link is still good.');
+  }
+}
+boot();
+</script>
+</body>
+</html>
