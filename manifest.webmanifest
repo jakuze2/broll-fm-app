@@ -1,0 +1,21 @@
+{
+  "name": "Broll FM Capture",
+  "short_name": "Broll FM",
+  "description": "Stock movements, cleaning rounds and meter readings for the World Bank site, Kampala.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F6F8F9",
+  "theme_color": "#1B5163",
+  "lang": "en-GB",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Store",  "url": "./index.html#stock"  },
+    { "name": "Rounds", "url": "./index.html#rounds" }
+  ]
+}
